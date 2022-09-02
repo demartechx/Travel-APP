@@ -4,6 +4,8 @@ import 'package:travel/widgets/app_large_text.dart';
 import 'package:travel/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
