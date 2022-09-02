@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travel/cubit/app_cubit.dart';
 import 'package:travel/widgets/app_large_text.dart';
 import 'package:travel/widgets/app_text.dart';
 import 'package:travel/widgets/responsive_button.dart';
@@ -76,24 +78,36 @@ class _WelcomePageState extends State<WelcomePage> {
                         const SizedBox(
                           height: 40,
                         ),
-                        ResponsiveButton(
-                          width: 120,
+                        GestureDetector(
+                          onTap: () {
+                            BlocProvider.of<AppCubits>(context).getData();
+                          },
+                          child: Container(
+                            width: 200,
+                            child: Row(
+                              children: [
+                                ResponsiveButton(
+                                  width: 120,
+                                ),
+                              ],
+                            ),
+                          ),
                         )
                       ],
                     ),
                     Column(
-                      children: List.generate(3, (indexDots) {
-                          return Container(
-                            margin: const EdgeInsets.only(bottom: 2),
-                            width: 8,
-                            height: index == indexDots ? 25 : 8,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: index == indexDots ? AppColors.mainColor : AppColors.mainColor.withOpacity(0.3) 
-                            ),
-                          );
-                        })
-                    )
+                        children: List.generate(3, (indexDots) {
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 2),
+                        width: 8,
+                        height: index == indexDots ? 25 : 8,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: index == indexDots
+                                ? AppColors.mainColor
+                                : AppColors.mainColor.withOpacity(0.3)),
+                      );
+                    }))
                   ],
                 ),
               ),
