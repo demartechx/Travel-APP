@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               width: double.maxFinite,
               child: TabBarView(controller: _tabController, children: [
                 ListView.builder(
-                  itemCount: 3,
+                  itemCount: info.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
@@ -112,8 +112,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     );
                   },
                 ),
-                Text("There"),
-                Text("Bye"),
+                const Text("There"),
+                const Text("Bye"),
               ]),
             ),
             const SizedBox(
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               width: double.maxFinite,
               margin: const EdgeInsets.only(left: 20),
               child: ListView.builder(
-                  itemCount: info.length,
+                  itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_, index) {
                     return Container(
@@ -165,11 +165,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           const SizedBox(
                             height: 10,
                           ),
-                          Container(
-                            child: AppText(
-                              text: images.values.elementAt(index),
-                              color: AppColors.textColor2,
-                            ),
+                          AppText(
+                            text: images.values.elementAt(index),
+                            color: AppColors.textColor2,
                           )
                         ],
                       ),
@@ -192,7 +190,6 @@ class CircleTabIndicator extends Decoration {
 
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    // TODO: implement createBoxPainter
     return _CirclePainter(color: color, radius: radius);
   }
 }

@@ -22,7 +22,7 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           return const WelcomePage();
         }
         if (state is LoadingState) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
@@ -30,7 +30,7 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           return const DetailPage();
         }
         if (state is LoadedState) {
-          return HomePage();
+          return const HomePage();
         } else {
           return Container();
         }
